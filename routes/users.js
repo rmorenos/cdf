@@ -40,7 +40,7 @@ router.post('/addInfo', function (req, res, next) {
 		title: req.body.title,
 		category: req.body.category,
 		subTitle: req.body.subTitle,
-		createTime: Date.now(),
+		createTime: Date.now()
 	});
 	addInfo.save(function (err) {
 		console.log('save status', err ? err : 'success');
@@ -50,7 +50,7 @@ router.post('/addInfo', function (req, res, next) {
 router.get('/getInfo', function (req, res, next) {
 	AddInfo.find({}, function (err, docs) {
 		if (err) throw err;
-		res.send({
+		res.json({
 			code: 200,
 			message: '获取数据列表成功',
 			data: docs
