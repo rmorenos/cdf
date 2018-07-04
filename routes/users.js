@@ -35,7 +35,6 @@ router.post('/submit', function (req, res, next) {
 });
 
 router.post('/addInfo', function (req, res, next) {
-	console.log(req.body);
 	const addInfo = new AddInfo({
 		title: req.body.title,
 		category: req.body.category,
@@ -44,6 +43,11 @@ router.post('/addInfo', function (req, res, next) {
 	});
 	addInfo.save(function (err) {
 		console.log('save status', err ? err : 'success');
+		res.json({
+			code: res.status,
+			message: '新增数据成功',
+			data: []
+		})
 	});
 });
 
@@ -51,7 +55,7 @@ router.get('/getInfo', function (req, res, next) {
 	AddInfo.find({}, function (err, docs) {
 		if (err) throw err;
 		res.json({
-			code: 200,
+			code: res.status,
 			message: '获取数据列表成功',
 			data: docs
 		});
