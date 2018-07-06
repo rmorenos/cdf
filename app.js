@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var logger = require('morgan');
+var jwt = require('jsonwebtoken');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,11 +13,19 @@ const mongoose = require('./config/mongoose');
 const db = mongoose();
 var app = express();
 
+
+const token = jwt.sign({name: '张三的空间框架'}, 'suuiuuuuiuiiu', {expiresIn: 10080});
+
+jwt.verify(token, 'suuiuuuuiuiiu', function (err, decoded) {
+	if (err) throw err;
+	console.log(decoded);
+});
+console.log(token);
+
 //  跨域配置
+
 /*app.all('*', function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Credentials", "true");
-	res.header("Access-Control-Allow-Headers", "Content-Type,username");
 	res.header("Access-Control-Allow-Headers", "X-Requested-With");
 	res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
 	res.header("X-Powered-By", ' 3.2.1');
@@ -43,9 +52,9 @@ app.use(function (req, res, next) {
 });
 
 app.use(cors({
-	origin:['http://localhost:8080'],
-	methods:['GET','POST'],
-	alloweHeaders:['Content-Type', 'Authorization', 'Cache-Control', 'no-cache, no-store, must-revalidate']
+	origin: ['http://localhost:8080'],
+	methods: ['GET', 'POST'],
+	alloweHeaders: ['Content-Type', 'Authorization', 'Cache-Control', 'no-cache, no-store, must-revalidate']
 }));
 
 //  error handler
