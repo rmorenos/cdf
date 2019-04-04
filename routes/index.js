@@ -3,9 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: '(quipo SSGG) => {
-
-	}' });
+	res.render('index', { title: 'Soluciones orion' });
 });
 
 module.exports = router;
