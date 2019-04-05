@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "script bueno"
+echo "script buenonissss"
 pm2 start www
