@@ -24,6 +24,15 @@ sudo pm2 startup
 sudo pm2 startup systemd
 sudo pm2 save
 
+
+rm /var/tmp/aws-mon/instance-id
+sleep 30
+sudo pm2 kill
+sudo pm2 delete all
+sudo pm2 start /home/ec2-user/cdf
+sudo pm2 save
+sudo pm2 log
+------------------------------------------------------------------------------------------
 #!/bin/bash
 sudo yum install -y gcc-c++ make
 curl -sL https://rpm.nodesource.com/setup_11.x | sudo -E bash -
@@ -44,3 +53,4 @@ sudo pm2 update
 sudo pm2 startup
 sudo pm2 startup systemd
 sudo pm2 save
+---------------------------------------
