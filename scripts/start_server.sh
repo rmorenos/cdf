@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "script buenoniseeeeesss"
-pm2 start www
+pm2 start server
