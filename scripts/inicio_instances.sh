@@ -10,3 +10,10 @@ cd /home/ec2-user
 wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
 chmod +x ./install
 sudo ./install auto
+
+
+sudo amazon-linux-extras install epel -y
+sudo yum install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
