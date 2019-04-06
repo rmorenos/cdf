@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
-echo "script buenicimdddddddo"
-pm2 start ./cdf/bin/www --name "server"
-pm2 stop server
+#!/bin/bash
+echo "script buenoniseeeeesss"
+sudo pm2 kill
+sudo pm2 delete all
+cd /home/ec2-user/cdf
+sudo pm2 stop npm --
+sudo pm2 save
+sudo pm2 startup
