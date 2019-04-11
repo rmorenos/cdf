@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: 'Soluciones orion SSGG este si' });
+	res.render('index', { title: 'Soluciones orion SSGG' });
 });
 
 module.exports = router;
